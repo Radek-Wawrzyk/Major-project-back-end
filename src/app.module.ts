@@ -6,15 +6,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { OfferEntity } from './modules/offers/offer.entity';
 import { UserEntity } from './modules/users/users.entity';
 import { PhotoEntity } from './modules/photos/photos.entity';
+import { FavoriteOffersEntity } from './modules/favorite-offers/favorite-offers.entity';
+import { QuestionsEntity } from './modules/questions/questions.entity';
 
 // Modules
 import { UsersModule } from './modules/users/users.module';
 import { OffersModule } from './modules/offers/offers.module';
 import { PhotosModule } from './modules/photos/photos.module';
 import { FavoriteOffersModule } from './modules/favorite-offers/favorite-offers.module';
-import { FavoriteOffersEntity } from './modules/favorite-offers/favorite-offers.entity';
 import { QuestionsModule } from './modules/questions/questions.module';
-import { QuestionsEntity } from './modules/questions/questions.entity';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { QuestionsEntity } from './modules/questions/questions.entity';
     PhotosModule,
     FavoriteOffersModule,
     QuestionsModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

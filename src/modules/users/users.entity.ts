@@ -24,23 +24,23 @@ export class UserEntity {
   @Column()
   phone: number;
 
-  @Column()
+  @Column({ nullable: true })
   avatar_url: string;
 
-  @Column()
+  @Column({ nullable: true })
   bio: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  created: Date;
+  created_at: Date;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  updated: Date;
+  updated_at: Date;
 
   @OneToMany((type) => OfferEntity, (offer) => offer.author)
   offers: OfferEntity[];
 
   @BeforeUpdate()
   updateTimestamp() {
-    this.updated = new Date();
+    this.updated_at = new Date();
   }
 }

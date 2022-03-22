@@ -17,9 +17,6 @@ export class OfferEntity {
   @Column()
   name: string;
 
-  @Column()
-  slug: string;
-
   @Column({ default: '' })
   description: string;
 
@@ -112,7 +109,7 @@ export class OfferEntity {
     this.updatedAt = new Date();
   }
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', nullable: true })
   publishedDate: Date;
 
   @OneToMany((type) => PhotoEntity, (photo) => photo.offer)
